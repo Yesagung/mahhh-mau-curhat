@@ -256,9 +256,9 @@ p.show {
 
 <!-- MUSIC -->
 <iframe id="music"
-src="https://www.youtube.com/embed/SXHwgBTPhuQ?autoplay=1&loop=1&playlist=SXHwgBTPhuQ&enablejsapi=1"
+src="https://www.youtube.com/embed/SXHwgBTPhuQ?autoplay=1&loop=1&playlist=SXHwgBTPhuQ&enablejsapi=1&mute=1"
 frameborder="0"
-allow="autoplay"
+allow="autoplay; encrypted-media"
 style="display:none">
 </iframe>
 
@@ -287,6 +287,9 @@ function startApp(){
   // Play music
   let music = document.getElementById("music");
   music.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+  setTimeout(() => {
+    music.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+  }, 1000); // Unmute after 1 second
 
   // Randomize flying photos
   let photos = document.querySelectorAll('.flying-photo');
