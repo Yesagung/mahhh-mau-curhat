@@ -255,12 +255,7 @@ p.show {
 </div>
 
 <!-- MUSIC -->
-<iframe id="music"
-src="https://www.youtube.com/embed/SXHwgBTPhuQ?autoplay=1&loop=1&playlist=SXHwgBTPhuQ&enablejsapi=1&mute=1"
-frameborder="0"
-allow="autoplay; encrypted-media"
-style="display:none">
-</iframe>
+<audio id="music" src="./Budi Doremi - Ada Untukmu (Official Music Video) [SXHwgBTPhuQ].mp3" loop preload="auto"></audio>
 
 <div class="main" id="main">
   <img src="./7.jpeg" class="header-img" id="header" loading="lazy">
@@ -286,10 +281,7 @@ function startApp(){
 
   // Play music
   let music = document.getElementById("music");
-  music.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-  setTimeout(() => {
-    music.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
-  }, 1000); // Unmute after 1 second
+  music.play();
 
   // Randomize flying photos
   let photos = document.querySelectorAll('.flying-photo');
